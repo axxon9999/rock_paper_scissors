@@ -21,8 +21,11 @@ window.computerScore = 0;
                 loser = 'Scissors';
                 playerScore++;
             } else if (player === 'rock' && computerSelection === 'rock') {
+                status = 'Tie';
+                winner = 'None';
+                loser = 'None';
                 tie++;
-                return 'It is a tie!';
+                // return 'It is a tie!';
             }
             // If playerSelection is Scissors
             if (player === 'scissors' && computerSelection === 'paper') {
@@ -36,8 +39,11 @@ window.computerScore = 0;
                 loser = 'Rock';
                 computerScore++;
             } else  if (player === 'scissors' && computerSelection === 'scissors') {
+                status = 'Tie';
+                winner = 'None';
+                loser = 'None';
                 tie++;
-                return 'It is a tie!';
+                // return 'It is a tie!';
             }
             // If playerSelection is Paper
             if (player === 'paper' && computerSelection === 'scissors') {
@@ -51,14 +57,21 @@ window.computerScore = 0;
                 loser = 'Rock';
                 playerScore++;
             } else if (player === 'paper' && computerSelection === 'paper') {
+                status = 'Tie';
+                winner = 'None';
+                loser = 'None';
                 tie++;
-                return 'It is a tie!';
+                // return 'It is a tie!';
             }
             let select = document.querySelector(".winner");
             select.innerHTML = "";
-            text = document.createTextNode(`You ${status}! ${winner} beats ${loser}`);
+            if (status === 'Tie') {
+                text = document.createTextNode(`It's a ${status}!`);
+            } else {
+                text = document.createTextNode(`You ${status}! ${winner} beats ${loser}`);
+            }
             select.append(text);
-            return `You ${status}! ${winner} beats ${loser}`;
+            // return `You ${status}! ${winner} beats ${loser}`;
         }
 
         // Computer Play - Function
